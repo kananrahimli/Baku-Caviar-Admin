@@ -2,9 +2,12 @@
   <div class="about ">
     <dashboard
       :currentInputsCount="currentInputsCount"
-      @addInputAbout="incInput"
-      @saveAbout="save"
-      @updateAbout="update"
+      :showWithProps="false"
+      :showSelectFile="false"
+      :showSeePicture="false"
+      @addInputContact="incInput"
+      @saveContact="save"
+      @updateContact="update"
     >
     </dashboard>
   </div>
@@ -21,18 +24,18 @@ export default {
   },
   computed: {
     currentInputsCount() {
-      return this.$store.state.aboutDataCount;
+      return this.$store.state.contactDataCount;
     },
   },
   methods: {
     incInput(data) {
-      this.$store.dispatch("increaseInputAbout", data);
+      this.$store.dispatch("increaseInputContact", data);
     },
     async save(data) {
-      await this.$store.dispatch("saveToDataBaseAbout", data);
+      await this.$store.dispatch("saveToDataBaseContact", data);
     },
     async update(data) {
-      await this.$store.dispatch("updateDataBaseAbout", data);
+      await this.$store.dispatch("updateDataBaseContact", data);
     },
   },
 };
