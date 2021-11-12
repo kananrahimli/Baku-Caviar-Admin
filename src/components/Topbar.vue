@@ -2,8 +2,8 @@
   <v-app-bar app elevate-on-scroll elevation="3" color="white">
     <v-app-bar-nav-icon @click="$emit('drawerEvent')"></v-app-bar-nav-icon>
     <v-spacer />
-    <v-col lg="6" cols="12">
-      <v-form class="pb-4 pt-5">
+    <v-col lg="6" cols="12" class="d-flex justify-content-center">
+      <!-- <v-form class="pb-4 pt-5">
         <v-text-field
           class="mt-5"
           label="Search"
@@ -12,7 +12,11 @@
             rounded
             dense
         />
-      </v-form>
+      </v-form> -->
+
+      <router-link to="/home" class="d-block text-dark mx-2" >Aze</router-link>
+      <router-link to="/rus/home" class="d-block text-dark mx-2">Rus</router-link>
+      <router-link to="/en/home" class="d-block text-dark mx-2">Eng</router-link>
     </v-col>
     <v-spacer />
     <v-menu offset-y>

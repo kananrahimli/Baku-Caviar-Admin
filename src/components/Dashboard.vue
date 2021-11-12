@@ -82,7 +82,6 @@ export default {
   },
   props:{
     currentInputsCount:{
-      type:Object,
       required:true
 
     },
@@ -121,6 +120,41 @@ export default {
     "addInputContact",
     "saveContact",
     "updateContact",
+
+    // ENG
+    "addInputHomeEn",
+    "addInputAboutEn",
+    "saveHomeEn",
+    "saveAboutEn",
+    "updateHomeEn",
+    "updateAboutEn",
+    "addInputHeritageEn",
+    "saveHeritageEn",
+    "updateHeritageEn",
+    "addInputOurCaviarEn",
+    "saveOurCaviarEn",
+    "updateOurCaviarEn",
+    "addInputContactEn",
+    "saveContactEn",
+    "updateContactEn",
+
+    // RUS
+    "addInputHomeRu",
+    "addInputAboutRu",
+    "saveHomeRu",
+    "saveAboutRu",
+    "updateHomeRu",
+    "updateAboutRu",
+    "addInputHeritageRu",
+    "saveHeritageRu",
+    "updateHeritageRu",
+    "addInputOurCaviarRu",
+    "saveOurCaviarRu",
+    "updateOurCaviarRu",
+    "addInputContactRu",
+    "saveContactRu",
+    "updateContactRu",
+
   ],
   data() {
     return {
@@ -148,7 +182,7 @@ export default {
 
   methods: {
     addInput() {
-      this.showAddButton = false;
+      // this.showAddButton = false;
       this.$emit("addInputHome", {
         id: this.$store.state.dataCount.length,
         title: "",
@@ -169,11 +203,54 @@ export default {
         id: this.$store.state.contactDataCount.length,
         title: "",
       });
-      //
+
+      //ENG
+      
+      this.$emit("addInputHomeEn", {
+        id: this.$store.state.dataCountEn.length,
+        title: "",
+      });
+      this.$emit("addInputAboutEn", {
+        id: this.$store.state.aboutDataCountEn.length,
+        title: "",
+      });
+      this.$emit("addInputHeritageEn", {
+        id: this.$store.state.heritageDataCountEn.length,
+        title: "",
+      });
+      this.$emit("addInputOurCaviarEn", {
+        id: this.$store.state.ourCaviarDataCountEn.length,
+        title: "",
+      });
+      this.$emit("addInputContactEn", {
+        id: this.$store.state.contactDataCountEn.length,
+        title: "",
+      });
+
+      // RUS
+       this.$emit("addInputHomeRu", {
+        id: this.$store.state.dataCountRu.length,
+        title: "",
+      });
+      this.$emit("addInputAboutRu", {
+        id: this.$store.state.aboutDataCountRu.length,
+        title: "",
+      });
+      this.$emit("addInputHeritageRu", {
+        id: this.$store.state.heritageDataCountRu.length,
+        title: "",
+      });
+      this.$emit("addInputOurCaviarRu", {
+        id: this.$store.state.ourCaviarDataCountRu.length,
+        title: "",
+      });
+      this.$emit("addInputContactRu", {
+        id: this.$store.state.contactDataCountRu.length,
+        title: "",
+      });
     },
 
     async deleteInput(e) {
-      console.log(this.$store.state.dataCount);
       await this.$store.dispatch("deleteInput", {
         id: e.target.parentElement.parentElement.id,
       });
@@ -239,6 +316,68 @@ export default {
         title: savedInput.title,
         id: savedInput.id,
       });
+
+      // ENG
+
+       this.$emit("saveHomeEn", {
+        title: savedInput.title,
+        id: savedInput.id,
+        img: this.image,
+        imgName: this.photoName,
+      });
+      this.$emit("saveAboutEn", {
+        title: savedInput.title,
+        id: savedInput.id,
+        img: this.image,
+        imgName: this.photoName,
+      });
+      this.$emit("saveHeritageEn", {
+        title: savedInput.title,
+        id: savedInput.id,
+        img: this.image,
+        imgName: this.photoName,
+      });
+      this.$emit("saveOurCaviarEn", {
+        title: savedInput.title,
+        id: savedInput.id,
+        img: this.image,
+        imgName: this.photoName,
+      });
+      this.$emit("saveContactEn", {
+        title: savedInput.title,
+        id: savedInput.id,
+      });
+
+      // RUS
+      this.$emit("saveHomeRu", {
+        title: savedInput.title,
+        id: savedInput.id,
+        img: this.image,
+        imgName: this.photoName,
+      });
+      this.$emit("saveAboutRu", {
+        title: savedInput.title,
+        id: savedInput.id,
+        img: this.image,
+        imgName: this.photoName,
+      });
+      this.$emit("saveHeritageRu", {
+        title: savedInput.title,
+        id: savedInput.id,
+        img: this.image,
+        imgName: this.photoName,
+      });
+      this.$emit("saveOurCaviarRu", {
+        title: savedInput.title,
+        id: savedInput.id,
+        img: this.image,
+        imgName: this.photoName,
+      });
+      this.$emit("saveContactRu", {
+        title: savedInput.title,
+        id: savedInput.id,
+      });
+
       this.showAddButton = true;
     },
 
@@ -282,6 +421,68 @@ export default {
         title: this.savedInput.title,
         id: this.savedInput.id,
       });
+
+      // ENG
+
+       await this.$emit("updateHomeEn", {
+        title: this.savedInput.title,
+        id: this.savedInput.id,
+        img: this.image,
+        imgName: imgName,
+      });
+      await this.$emit("updateAboutEn", {
+        title: this.savedInput.title,
+        id: this.savedInput.id,
+        img: this.image,
+        imgName: imgName,
+      });
+      await this.$emit("updateHeritageEn", {
+        title: this.savedInput.title,
+        id: this.savedInput.id,
+        img: this.image,
+        imgName: imgName,
+      });
+      await this.$emit("updateOurCaviarEn", {
+        title: this.savedInput.title,
+        id: this.savedInput.id,
+        img: this.image,
+        imgName: imgName,
+      });
+        await this.$emit("updateContactEn", {
+        title: this.savedInput.title,
+        id: this.savedInput.id,
+      });
+
+      // RUS
+      await this.$emit("updateHomeRu", {
+        title: this.savedInput.title,
+        id: this.savedInput.id,
+        img: this.image,
+        imgName: imgName,
+      });
+      await this.$emit("updateAboutRu", {
+        title: this.savedInput.title,
+        id: this.savedInput.id,
+        img: this.image,
+        imgName: imgName,
+      });
+      await this.$emit("updateHeritageRu", {
+        title: this.savedInput.title,
+        id: this.savedInput.id,
+        img: this.image,
+        imgName: imgName,
+      });
+      await this.$emit("updateOurCaviarRu", {
+        title: this.savedInput.title,
+        id: this.savedInput.id,
+        img: this.image,
+        imgName: imgName,
+      });
+        await this.$emit("updateContactRu", {
+        title: this.savedInput.title,
+        id: this.savedInput.id,
+      });
+
       this.showAddButton = true;
     },
   },

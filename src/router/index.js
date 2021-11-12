@@ -7,6 +7,21 @@ import Heritage from '../views/Heritage.vue'
 import OurCaviar from '../views/OurCaviar.vue'
 import Login from '../views/Login.vue'
 import Contact from '../views/Contact.vue'
+
+// ENG
+import HomeEn from '../views/en/HomeEn.vue'
+import AboutEn from '../views/en/AboutEn.vue'
+import HeritageEn from '../views/en/HeritageEn.vue'
+import OurCaviarEn from '../views/en/OurCaviarEn.vue'
+import ContactEn from '../views/en/ContactEn.vue'
+
+// RUS
+import HomeRu from '../views/rus/HomeRu.vue'
+import AboutRu from '../views/rus/AboutRu.vue'
+import HeritageRu from '../views/rus/HeritageRu.vue'
+import OurCaviarRu from '../views/rus/OurCaviarRu.vue'
+import ContactRu from '../views/rus/ContactRu.vue'
+
 import "firebase/auth"
 import firebase from 'firebase/app'
 // import Register from '../views/Register.vue'
@@ -70,7 +85,99 @@ const routes = [
     meta: {
       requiresAuth: true
     }
-  }
+  },
+
+  // ENG
+
+  {
+    path: '/en/home',
+    name: 'HomeEn',
+    component: HomeEn,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/en/about',
+    name: 'AboutEn',
+    component: AboutEn,
+    meta: {
+      requiresAuth: true
+    }
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+  },
+  {
+    path: '/en/heritage',
+    name: 'HeritageEn',
+    component: HeritageEn,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/en/our-caviar',
+    name: 'OurCaviarEn',
+    component: OurCaviarEn,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/en/contact',
+    name: 'ContactEn',
+    component: ContactEn,
+    meta: {
+      requiresAuth: true
+    }
+  },
+
+
+  // RU
+  {
+    path: '/rus/home',
+    name: 'HomeRu',
+    component: HomeRu,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/rus/about',
+    name: 'AboutRu',
+    component: AboutRu,
+    meta: {
+      requiresAuth: true
+    }
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+  },
+  {
+    path: '/rus/heritage',
+    name: 'HeritageRu',
+    component: HeritageRu,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/rus/our-caviar',
+    name: 'OurCaviarRu',
+    component: OurCaviarRu,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/rus/contact',
+    name: 'ContactRu',
+    component: ContactRu,
+    meta: {
+      requiresAuth: true
+    }
+  },
 ]
 
 const router = new VueRouter({
