@@ -14,9 +14,22 @@
         />
       </v-form> -->
 
-      <router-link to="/home" class="d-block text-dark mx-2" >Aze</router-link>
-      <router-link to="/rus/home" class="d-block text-dark mx-2">Rus</router-link>
-      <router-link to="/en/home" class="d-block text-dark mx-2">Eng</router-link>
+      <button @click="az">
+        <router-link to="/admin/home" class="d-block text-dark mx-2"
+          >Aze</router-link
+        >
+      </button>
+      <button @click="ru">
+        <router-link to="/admin/rus/home" class="d-block text-dark mx-2"
+          >Rus</router-link
+        >
+      </button>
+
+      <button @click="en">
+        <router-link to="/admin/en/home" class="d-block text-dark mx-2"
+          >Eng</router-link
+        >
+      </button>
     </v-col>
     <v-spacer />
     <v-menu offset-y>
@@ -27,10 +40,8 @@
           v-bind="attrs"
           v-on="on"
         >
-         
         </span>
       </template>
-      
     </v-menu>
     <v-menu offset-y>
       <template v-slot:activator="{ attrs, on }">
@@ -61,7 +72,7 @@
           <v-list-item-icon>
             <v-icon>{{ menu.icon }}</v-icon>
           </v-list-item-icon>
-          <v-list-item-title  @click="logOut">
+          <v-list-item-title @click="logOut">
             {{ menu.title }}
           </v-list-item-title>
         </v-list-item>
@@ -81,19 +92,52 @@ export default {
         // { title: "Setting", icon: "mdi-cog" },
         { title: "Logout", icon: "mdi-logout" },
       ],
-      
     };
   },
-   methods:{
-       async logOut(){
-         await this.$store.dispatch('logOut')
-         await this.$router.push('/login')
-        }
-    }
+  methods: {
+    async logOut() {
+      await this.$store.dispatch("logOut");
+      await this.$router.push("/login");
+    },
+
+    az() {
+      this.$store.dispatch("changeSidebarLinks", {
+        payload: [
+          { item: "Ana səhifə", link: "home", icon: "fas fa-home" },
+          { item: "Biz kimik", link: "about", icon: "fas fa-users" },
+          { item: "İrsimiz", link: "heritage", icon: "fas fa-bookmark" },
+          { item: "Bizim kürümüz", link: "our-caviar", icon: "fas fa-fish" },
+          { item: "Əlaqə", link: "contact", icon: "fas fa-phone" },
+        ],
+      });
+    },
+    ru() {
+      this.$store.dispatch("changeSidebarLinks", {
+        payload: [
+          { item: "Домашняя страница", link: "home", icon: "fas fa-home" },
+          { item: "О нас", link: "about", icon: "fas fa-users" },
+          { item: "Наследие", link: "heritage", icon: "fas fa-bookmark" },
+          { item: "Наша икра", link: "our-caviar", icon: "fas fa-fish" },
+          { item: "Контакт", link: "contact", icon: "fas fa-phone" },
+        ],
+      });
+    },
+    en() {
+      this.$store.dispatch("changeSidebarLinks", {
+        payload: [
+          { item: "Home Page", link: "home", icon: "fas fa-home" },
+          { item: "Who we are", link: "about", icon: "fas fa-users" },
+          { item: "Our heritage", link: "heritage", icon: "fas fa-bookmark" },
+          { item: "Our caviar", link: "our-caviar", icon: "fas fa-fish" },
+          { item: "Contact", link: "contact", icon: "fas fa-phone" },
+        ],
+      });
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
-  $mdi-font-path: "~@mdi/font/fonts" !default;
-@import '~@mdi/font/scss/materialdesignicons';
+$mdi-font-path: "~@mdi/font/fonts" !default;
+@import "~@mdi/font/scss/materialdesignicons";
 </style>

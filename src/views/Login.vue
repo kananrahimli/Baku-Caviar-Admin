@@ -101,7 +101,7 @@ export default {
   },
   created(){
      if (
-      this.$route.fullPath ==="/login"
+      this.$route.fullPath ==="/admin/login"
     ) {
       this.$store.state.showNavigation=false
     }else{

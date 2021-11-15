@@ -8,6 +8,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+
+    navItems:[
+      {item:'Ana-sehife',link:'home',icon:'fas fa-home'},
+      {item:'Biz kimik',link:'about',icon:'fas fa-users'},
+      {item:'İrsimiz',link:'heritage',icon:'fas fa-bookmark'},
+      {item:'Bizim Kürümüz',link:'our-caviar',icon:'fas fa-fish'},
+      {item:'Əlaqə',link:'contact',icon:'fas fa-phone'}
+  ],
     // AzData
     dataCount:[],
     aboutDataCount:[],
@@ -36,6 +44,9 @@ export default new Vuex.Store({
 
   },
   mutations: {
+    changeSidebarLinks(state,payload){
+      state.navItems=payload
+    },
 
     loadInfos(state,payload){
       state.dataCount=payload.homeInputs
@@ -147,6 +158,11 @@ export default new Vuex.Store({
     
   },
   actions: {
+
+    changeSidebarLinks(context,payload){
+      context.commit('changeSidebarLinks',payload.payload)
+    },
+
     async login(context,payload){
       const firebaseAuth= await firebase.auth();
       await firebaseAuth

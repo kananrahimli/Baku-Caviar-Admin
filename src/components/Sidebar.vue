@@ -30,15 +30,14 @@ export default {
   props: ["drawer"],
   data() {
     return {
-      navItems:[
-                {item:'Ana-sehife',link:'home',icon:'fas fa-home'},
-                {item:'Biz kimik',link:'about',icon:'fas fa-users'},
-                {item:'İrsimiz',link:'heritage',icon:'fas fa-bookmark'},
-                {item:'Bizim Kürümüz',link:'our-caviar',icon:'fas fa-fish'},
-                {item:'Əlaqə',link:'contact',icon:'fas fa-phone'}
-            ]
+     
     };
   },
+  computed:{
+    navItems(){
+      return this.$store.state.navItems
+    }
+  }
 };
 </script>
 
