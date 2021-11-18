@@ -1,9 +1,11 @@
 <template>
-  <div class="home ">
+  <div class="home">
     <dashboard
-      :currentInputsCount="currentInputsCount" @addInputHome="incInput" @saveHome="save" @updateHome="update"
-     >
-
+      :currentInputsCount="currentInputsCount"
+      @addInputHome="incInput"
+      @saveHome="save"
+      @updateHome="update"
+    >
     </dashboard>
   </div>
 </template>
@@ -12,54 +14,44 @@
 // @ is an alias to /src
 
 export default {
-  name: 'Home',
- 
+  name: "Home",
 
-  data(){
-    return{
-     
-    }
-   
+  data() {
+    return {};
   },
-  computed:{
-     currentInputsCount(){
-      return this.$store.state.dataCount
+  computed: {
+    currentInputsCount() {
+      return this.$store.state.dataCount;
     },
   },
 
-  methods:{
-    incInput(data){
-      this.$store.dispatch('increaseInputHome',data)
+  methods: {
+    incInput(data) {
+      this.$store.dispatch("increaseInputHome", data);
     },
-    async save(data){
-       await this.$store.dispatch('saveToDataBase',data)
+    async save(data) {
+      await this.$store.dispatch("saveToDataBase", data);
     },
-    async update(data){
-      await   this.$store.dispatch('updateDataBaseHome',data)
+    async update(data) {
+      await this.$store.dispatch("updateDataBaseHome", data);
+    },
+  },
+  created() {
+    if (this.$route.fullPath === "/login") {
+      this.$store.state.showNavigation = false;
+    } else {
+      this.$store.state.showNavigation = true;
     }
   },
-   created(){
-     if (
-      this.$route.fullPath ==="/login"
-    ) {
-      this.$store.state.showNavigation=false
-    }else{
-      this.$store.state.showNavigation=true
-    }
-  }
- 
-}
+};
 </script>
 
 <style lang="scss" scoped>
-.home{
-  
+.home {
   height: 100vh;
 }
 
 // input{
 //   background: #000;
 // }
-
-
 </style>

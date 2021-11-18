@@ -2,11 +2,11 @@
   <div class="about">
     <dashboard
       :currentInputsCount="currentInputsCount"
-      :showWithProps="false"
+      :showWithProps="true"
       :showInput="true"
-      @addInputOurCaviarEn="incInput"
-      @saveOurCaviarEn="save"
-      @updateOurCaviarEn="update"
+      @addInputWhereBuyEn="incInput"
+      @saveWhereBuyEn="save"
+      @updateWhereBuyEn="update"
     >
     </dashboard>
   </div>
@@ -16,25 +16,25 @@
 // @ is an alias to /src
 
 export default {
-  name: "OurCaviarEn",
+  name: "WhereBuyEn",
 
   data() {
     return {};
   },
   computed: {
     currentInputsCount() {
-      return this.$store.state.ourCaviarDataCountEn;
+      return this.$store.state.whereBuyDataCountEn;
     },
   },
   methods: {
     incInput(data) {
-      this.$store.dispatch("increaseInputOurCaviarEn", data);
+      this.$store.dispatch("increaseInputWhereBuyEn", data);
     },
     async save(data) {
-      await this.$store.dispatch("saveToDataBaseOurCaviarEn", data);
+      await this.$store.dispatch("saveToDataBaseWhereBuyEn", data);
     },
     async update(data) {
-      await this.$store.dispatch("updateDataBaseOurCaviarEn", data);
+      await this.$store.dispatch("updateDataBaseWhereBuyEn", data);
     },
   },
 };

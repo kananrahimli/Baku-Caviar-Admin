@@ -14,6 +14,8 @@ export default new Vuex.Store({
       {item:'Biz kimik',link:'about',icon:'fas fa-users'},
       {item:'İrsimiz',link:'heritage',icon:'fas fa-bookmark'},
       {item:'Bizim Kürümüz',link:'our-caviar',icon:'fas fa-fish'},
+      {item:'Təbiətə qayğı',link:'care-nature',icon:'fas fa-leaf'},
+      {item:'Haradan almaq olar',link:'where-buy',icon:'fas fa-location-arrow'},
       {item:'Əlaqə',link:'contact',icon:'fas fa-phone'}
   ],
     // AzData
@@ -22,6 +24,8 @@ export default new Vuex.Store({
     heritageDataCount:[],
     ourCaviarDataCount:[],
     contactDataCount:[],
+    careNatureDataCount:[],
+    whereBuyDataCount:[],
 
     // RusData
     dataCountRu:[],
@@ -29,6 +33,8 @@ export default new Vuex.Store({
     heritageDataCountRu:[],
     ourCaviarDataCountRu:[],
     contactDataCountRu:[],
+    careNatureDataCountRu:[],
+    whereBuyDataCountRu:[],
 
     // EngData
     dataCountEn:[],
@@ -36,6 +42,8 @@ export default new Vuex.Store({
     heritageDataCountEn:[],
     ourCaviarDataCountEn:[],
     contactDataCountEn:[],
+    careNatureDataCountEn:[],
+    whereBuyDataCountEn:[],
 
     photoUrl:null,
     photoName:null,
@@ -54,6 +62,8 @@ export default new Vuex.Store({
       state.heritageDataCount=payload.heritageInputs
       state.ourCaviarDataCount=payload.ourCaviarInputs
       state.contactDataCount=payload.contactInputs
+      state.careNatureDataCount=payload.careNatureInputs
+      state.whereBuyDataCount=payload.whereBuyInputs
 
       // RUS
       state.dataCountRu=payload.homeInputsRu
@@ -61,6 +71,8 @@ export default new Vuex.Store({
       state.heritageDataCountRu=payload.heritageInputsRu
       state.ourCaviarDataCountRu=payload.ourCaviarInputsRu
       state.contactDataCountRu=payload.contactInputsRu
+      state.careNatureDataCountRu=payload.careNatureInputsRu
+      state.whereBuyDataCountRu=payload.whereBuyInputsRu
 
       // ENG
 
@@ -69,6 +81,8 @@ export default new Vuex.Store({
       state.heritageDataCountEn=payload.heritageInputsEn
       state.ourCaviarDataCountEn=payload.ourCaviarInputsEn
       state.contactDataCountEn=payload.contactInputsEn
+      state.careNatureDataCountEn=payload.careNatureInputsEn
+      state.whereBuyDataCountEn=payload.whereBuyInputsEn
     },
 
     increaseInputHome(state,payload){
@@ -86,6 +100,12 @@ export default new Vuex.Store({
     increaseInputContact(state,payload){
       state.contactDataCount.push(payload)
     },
+    increaseInputCareNature(state,payload){
+      state.careNatureDataCount.push(payload)
+    },
+    increaseInputWhereBuy(state,payload){
+      state.whereBuyDataCount.push(payload)
+    },
 
     // RUS
     increaseInputHomeRu(state,payload){
@@ -102,6 +122,12 @@ export default new Vuex.Store({
     },
     increaseInputContactRu(state,payload){
       state.contactDataCountRu.push(payload)
+    },
+    increaseInputCareNatureRu(state,payload){
+      state.careNatureDataCountRu.push(payload)
+    },
+    increaseInputWhereBuyRu(state,payload){
+      state.whereBuyDataCountRu.push(payload)
     },
 
     // ENG
@@ -121,13 +147,22 @@ export default new Vuex.Store({
     increaseInputContactEn(state,payload){
       state.contactDataCountEn.push(payload)
     },
+    increaseInputCareNatureEn(state,payload){
+      state.careNatureDataCountEn.push(payload)
+    },
+    increaseInputWhereBuyEn(state,payload){
+      state.whereBuyDataCountEn.push(payload)
+    },
   
     delete(state,payload){
+      console.log(payload);
      state.dataCount=state.dataCount.filter((item)=>{return item.id!=payload})
      state.aboutDataCount=state.aboutDataCount.filter((item)=>{return item.id!=payload})
      state.heritageDataCount=state.heritageDataCount.filter((item)=>{return item.id!=payload})
      state.ourCaviarDataCount=state.ourCaviarDataCount.filter((item)=>{return item.id!=payload})
      state.contactDataCount=state.contactDataCount.filter((item)=>{return item.id!=payload})
+     state.careNatureDataCount=state.careNatureDataCount.filter((item)=>{return item.id!=payload})
+     state.whereBuyDataCount=state.whereBuyDataCount.filter((item)=>{return item.id!=payload})
       // RUS
 
       state.dataCountRu=state.dataCountRu.filter((item)=>{return item.id!=payload})
@@ -135,6 +170,8 @@ export default new Vuex.Store({
       state.heritageDataCountRu=state.heritageDataCountRu.filter((item)=>{return item.id!=payload})
       state.ourCaviarDataCountRu=state.ourCaviarDataCountRu.filter((item)=>{return item.id!=payload})
       state.contactDataCountRu=state.contactDataCountRu.filter((item)=>{return item.id!=payload})
+      state.careNatureDataCountRu=state.careNatureDataCountRu.filter((item)=>{return item.id!=payload})
+     state.whereBuyDataCountRu=state.whereBuyDataCountRU.filter((item)=>{return item.id!=payload})
 
     //  ENG
 
@@ -143,6 +180,8 @@ export default new Vuex.Store({
      state.heritageDataCountEn=state.heritageDataCountEn.filter((item)=>{return item.id!=payload})
      state.ourCaviarDataCountEn=state.ourCaviarDataCountEn.filter((item)=>{return item.id!=payload})
      state.contactDataCountEn=state.contactDataCountEn.filter((item)=>{return item.id!=payload})
+     state.careNatureDataCountEn=state.careNatureDataCountEn.filter((item)=>{return item.id!=payload})
+     state.whereBuyDataCountEn=state.whereBuyDataCountEn.filter((item)=>{return item.id!=payload})
     },
 
     setPhotoUrlandName(state,payload){
@@ -219,6 +258,12 @@ export default new Vuex.Store({
     increaseInputContact(context,payload){
       context.commit('increaseInputContact',payload)
     },
+    increaseInputCareNature(context,payload){
+      context.commit('increaseInputCareNature',payload)
+    },
+    increaseInputWhereBuy(context,payload){
+      context.commit('increaseInputWhereBuy',payload)
+    },
     // RUS
     increaseInputHomeRu(context,payload){
       context.commit('increaseInputHomeRu',payload)
@@ -234,6 +279,12 @@ export default new Vuex.Store({
     },
     increaseInputContactRu(context,payload){
       context.commit('increaseInputContactRu',payload)
+    },
+    increaseInputCareNatureRu(context,payload){
+      context.commit('increaseInputCareNatureRu',payload)
+    },
+    increaseInputWhereBuyRu(context,payload){
+      context.commit('increaseInputWhereBuyRu',payload)
     },
 
     // ENG
@@ -253,28 +304,43 @@ export default new Vuex.Store({
     increaseInputContactEn(context,payload){
       context.commit('increaseInputContactEn',payload)
     },
+    increaseInputCareNatureEn(context,payload){
+      context.commit('increaseInputCareNatureEn',payload)
+    },
+    increaseInputWhereBuyEn(context,payload){
+      context.commit('increaseInputWhereBuyEn',payload)
+    },
 
-   async deleteInput(context,payload){
-      context.commit('delete',payload.id)
-     await realDb.ref('dataCount').child(payload.id).remove()
-     await realDb.ref('dataCountAbout').child(payload.id).remove()
-     await realDb.ref('dataCountHeritage').child(payload.id).remove()
-     await realDb.ref('dataCountOurCaviar').child(payload.id).remove()
-     await realDb.ref('dataCountContact').child(payload.id).remove()
+    deleteInput(context,payload){
+     
+      // context.commit('delete',payload.id)
+      realDb.ref('dataCount').child(payload.id).remove()
+      realDb.ref('dataCountAbout').child(payload.id).remove()
+      realDb.ref('dataCountHeritage').child(payload.id).remove()
+      realDb.ref('dataCountOurCaviar').child(payload.id).remove()
+      realDb.ref('dataCountContact').child(payload.id).remove()
+      realDb.ref('dataCountCareNature').child(payload.id).remove()
+      realDb.ref('dataCountWhereBuy').child(payload.id).remove()
 
     //  RUS
-    await realDb.ref('dataCountRu').child(payload.id).remove()
-     await realDb.ref('dataCountAboutRu').child(payload.id).remove()
-     await realDb.ref('dataCountHeritageRu').child(payload.id).remove()
-     await realDb.ref('dataCountOurCaviarRu').child(payload.id).remove()
-     await realDb.ref('dataCountContactRu').child(payload.id).remove()
+      realDb.ref('dataCountRu').child(payload.id).remove()
+      realDb.ref('dataCountAboutRu').child(payload.id).remove()
+      realDb.ref('dataCountHeritageRu').child(payload.id).remove()
+      realDb.ref('dataCountOurCaviarRu').child(payload.id).remove()
+      realDb.ref('dataCountContactRu').child(payload.id).remove()
+      realDb.ref('dataCountCareNatureRu').child(payload.id).remove()
+      realDb.ref('dataCountWhereBuyRu').child(payload.id).remove()
 
     //  ENG
-    await realDb.ref('dataCountEn').child(payload.id).remove()
-     await realDb.ref('dataCountAboutEn').child(payload.id).remove()
-     await realDb.ref('dataCountHeritageEn').child(payload.id).remove()
-     await realDb.ref('dataCountOurCaviarEn').child(payload.id).remove()
-     await realDb.ref('dataCountContactEn').child(payload.id).remove()
+      realDb.ref('dataCountEn').child(payload.id).remove()
+      realDb.ref('dataCountAboutEn').child(payload.id).remove()
+      realDb.ref('dataCountHeritageEn').child(payload.id).remove()
+      realDb.ref('dataCountOurCaviarEn').child(payload.id).remove()
+      realDb.ref('dataCountContactEn').child(payload.id).remove()
+      realDb.ref('dataCountCareNatureEn').child(payload.id).remove()
+      realDb.ref('dataCountWhereBuyEn').child(payload.id).remove()
+
+     
     },
 
     async saveToDataBase(context,payload){
@@ -497,6 +563,107 @@ export default new Vuex.Store({
     
 
     },
+    async saveToDataBaseCareNature(context,payload){
+      // context.commit('saveToDataBase',payload)
+
+      let key;
+      let imgurl;
+      console.log(payload.id);
+     await realDb.ref('dataCountCareNature').push(payload).then(data=>  {
+       key=data.key;
+       realDb
+       .ref("dataCountCareNature")
+       .child(key)
+       .update({id:key});
+       return  key;
+     })
+     .then(key => {
+      
+      var fileName;
+      var ext;
+      if(payload.img ){
+         fileName = payload.img.name;
+         ext = fileName.slice(fileName.lastIndexOf("."));
+      } else{
+        fileName=null
+        ext=null;
+      }
+      
+    
+      const upload = storage.ref("photos/" + key + ext);
+      if(fileName){
+        upload
+        .put(payload.img)
+        .then(() => {
+          
+            upload.getDownloadURL().then(snapshot => {
+              imgurl = snapshot;
+              realDb
+              .ref("dataCountCareNature")
+              .child(key)
+              .update({ imageUrl: imgurl });
+            });
+          
+         
+        })
+      }
+     
+       
+    })
+    
+
+    },
+
+    async saveToDataBaseWhereBuy(context,payload){
+      // context.commit('saveToDataBase',payload)
+
+      let key;
+      let imgurl;
+      console.log(payload.id);
+     await realDb.ref('dataCountWhereBuy').push(payload).then(data=>  {
+       key=data.key;
+       realDb
+       .ref("dataCountWhereBuy")
+       .child(key)
+       .update({id:key});
+       return  key;
+     })
+     .then(key => {
+      
+      var fileName;
+      var ext;
+      if(payload.img ){
+         fileName = payload.img.name;
+         ext = fileName.slice(fileName.lastIndexOf("."));
+      } else{
+        fileName=null
+        ext=null;
+      }
+      
+    
+      const upload = storage.ref("photos/" + key + ext);
+      if(fileName){
+        upload
+        .put(payload.img)
+        .then(() => {
+          
+            upload.getDownloadURL().then(snapshot => {
+              imgurl = snapshot;
+              realDb
+              .ref("dataCountWhereBuy")
+              .child(key)
+              .update({ imageUrl: imgurl });
+            });
+          
+         
+        })
+      }
+     
+       
+    })
+    
+
+    },
 
     // Save DATARUS
     async saveToDataBaseRu(context,payload){
@@ -716,6 +883,108 @@ export default new Vuex.Store({
        return  key;
      })
     
+    
+
+    },
+
+    async saveToDataBaseCareNatureRu(context,payload){
+      // context.commit('saveToDataBase',payload)
+
+      let key;
+      let imgurl;
+      console.log(payload.id);
+     await realDb.ref('dataCountCareNatureRu').push(payload).then(data=>  {
+       key=data.key;
+       realDb
+       .ref("dataCountCareNatureRu")
+       .child(key)
+       .update({id:key});
+       return  key;
+     })
+     .then(key => {
+      
+      var fileName;
+      var ext;
+      if(payload.img ){
+         fileName = payload.img.name;
+         ext = fileName.slice(fileName.lastIndexOf("."));
+      } else{
+        fileName=null
+        ext=null;
+      }
+      
+    
+      const upload = storage.ref("photos/" + key + ext);
+      if(fileName){
+        upload
+        .put(payload.img)
+        .then(() => {
+          
+            upload.getDownloadURL().then(snapshot => {
+              imgurl = snapshot;
+              realDb
+              .ref("dataCountCareNatureRu")
+              .child(key)
+              .update({ imageUrl: imgurl });
+            });
+          
+         
+        })
+      }
+     
+       
+    })
+    
+
+    },
+
+    async saveToDataBaseWhereBuyRu(context,payload){
+      // context.commit('saveToDataBase',payload)
+
+      let key;
+      let imgurl;
+      console.log(payload.id);
+     await realDb.ref('dataCountWhereBuyRu').push(payload).then(data=>  {
+       key=data.key;
+       realDb
+       .ref("dataCountWhereBuyRu")
+       .child(key)
+       .update({id:key});
+       return  key;
+     })
+     .then(key => {
+      
+      var fileName;
+      var ext;
+      if(payload.img ){
+         fileName = payload.img.name;
+         ext = fileName.slice(fileName.lastIndexOf("."));
+      } else{
+        fileName=null
+        ext=null;
+      }
+      
+    
+      const upload = storage.ref("photos/" + key + ext);
+      if(fileName){
+        upload
+        .put(payload.img)
+        .then(() => {
+          
+            upload.getDownloadURL().then(snapshot => {
+              imgurl = snapshot;
+              realDb
+              .ref("dataCountWhereBuyRu")
+              .child(key)
+              .update({ imageUrl: imgurl });
+            });
+          
+         
+        })
+      }
+     
+       
+    })
     
 
     },
@@ -943,6 +1212,108 @@ export default new Vuex.Store({
     
 
     },
+
+    async saveToDataBaseCareNatureEn(context,payload){
+      // context.commit('saveToDataBase',payload)
+
+      let key;
+      let imgurl;
+      console.log(payload.id);
+     await realDb.ref('dataCountCareNatureEn').push(payload).then(data=>  {
+       key=data.key;
+       realDb
+       .ref("dataCountCareNatureEn")
+       .child(key)
+       .update({id:key});
+       return  key;
+     })
+     .then(key => {
+      
+      var fileName;
+      var ext;
+      if(payload.img ){
+         fileName = payload.img.name;
+         ext = fileName.slice(fileName.lastIndexOf("."));
+      } else{
+        fileName=null
+        ext=null;
+      }
+      
+    
+      const upload = storage.ref("photos/" + key + ext);
+      if(fileName){
+        upload
+        .put(payload.img)
+        .then(() => {
+          
+            upload.getDownloadURL().then(snapshot => {
+              imgurl = snapshot;
+              realDb
+              .ref("dataCountCareNatureEn")
+              .child(key)
+              .update({ imageUrl: imgurl });
+            });
+          
+         
+        })
+      }
+     
+       
+    })
+    
+
+    },
+
+    async saveToDataBaseWhereBuyEn(context,payload){
+      // context.commit('saveToDataBase',payload)
+
+      let key;
+      let imgurl;
+      console.log(payload.id);
+     await realDb.ref('dataCountWhereBuyEn').push(payload).then(data=>  {
+       key=data.key;
+       realDb
+       .ref("dataCountWhereBuyEn")
+       .child(key)
+       .update({id:key});
+       return  key;
+     })
+     .then(key => {
+      
+      var fileName;
+      var ext;
+      if(payload.img ){
+         fileName = payload.img.name;
+         ext = fileName.slice(fileName.lastIndexOf("."));
+      } else{
+        fileName=null
+        ext=null;
+      }
+      
+    
+      const upload = storage.ref("photos/" + key + ext);
+      if(fileName){
+        upload
+        .put(payload.img)
+        .then(() => {
+          
+            upload.getDownloadURL().then(snapshot => {
+              imgurl = snapshot;
+              realDb
+              .ref("dataCountWhereBuyEn")
+              .child(key)
+              .update({ imageUrl: imgurl });
+            });
+          
+         
+        })
+      }
+     
+       
+    })
+    
+
+    },
     // ENG END
 
 
@@ -1105,6 +1476,84 @@ export default new Vuex.Store({
   
     },
 
+    async updateDataBaseCareNature(context,payload){
+
+      await realDb.ref('dataCountCareNature').child(payload.id).update(payload)
+      .then(() => {
+      
+        var fileName;
+        var ext;
+        if(payload.img ){
+           fileName = payload.img.name;
+           ext = fileName.slice(fileName.lastIndexOf("."));
+        } else{
+          fileName=null
+          ext=null;
+        }
+        
+      
+       const upload = storage.ref("photos/" + payload.id + ext);
+        if(fileName){
+          upload
+          .put(payload.img)
+          .then(() => {
+            
+              upload.getDownloadURL().then(snapshot => {
+                let imgurl = snapshot;
+                realDb
+                .ref("dataCountCareNature")
+                .child(payload.id)
+                .update({ imageUrl: imgurl });
+              });
+            
+           
+          })
+        }
+       
+         
+      })
+  
+    },
+
+    async updateDataBaseWhereBuy(context,payload){
+
+      await realDb.ref('dataCountWhereBuy').child(payload.id).update(payload)
+      .then(() => {
+      
+        var fileName;
+        var ext;
+        if(payload.img ){
+           fileName = payload.img.name;
+           ext = fileName.slice(fileName.lastIndexOf("."));
+        } else{
+          fileName=null
+          ext=null;
+        }
+        
+      
+       const upload = storage.ref("photos/" + payload.id + ext);
+        if(fileName){
+          upload
+          .put(payload.img)
+          .then(() => {
+            
+              upload.getDownloadURL().then(snapshot => {
+                let imgurl = snapshot;
+                realDb
+                .ref("dataCountWhereBuy")
+                .child(payload.id)
+                .update({ imageUrl: imgurl });
+              });
+            
+           
+          })
+        }
+       
+         
+      })
+  
+    },
+
     // UPDATE RUS
 
     async updateDataBaseHomeRu(context,payload){
@@ -1263,6 +1712,83 @@ export default new Vuex.Store({
     async updateDataBaseContactRu(context,payload){
 
       await realDb.ref('dataCountContactRu').child(payload.id).update(payload)
+  
+    },
+    async updateDataBaseCareNatureRu(context,payload){
+
+      await realDb.ref('dataCountCareNatureRu').child(payload.id).update(payload)
+      .then(() => {
+      
+        var fileName;
+        var ext;
+        if(payload.img ){
+           fileName = payload.img.name;
+           ext = fileName.slice(fileName.lastIndexOf("."));
+        } else{
+          fileName=null
+          ext=null;
+        }
+        
+      
+       const upload = storage.ref("photos/" + payload.id + ext);
+        if(fileName){
+          upload
+          .put(payload.img)
+          .then(() => {
+            
+              upload.getDownloadURL().then(snapshot => {
+                let imgurl = snapshot;
+                realDb
+                .ref("dataCountCareNatureRu")
+                .child(payload.id)
+                .update({ imageUrl: imgurl });
+              });
+            
+           
+          })
+        }
+       
+         
+      })
+  
+    },
+
+    async updateDataBaseWhereBuyRu(context,payload){
+
+      await realDb.ref('dataCountWhereBuyRu').child(payload.id).update(payload)
+      .then(() => {
+      
+        var fileName;
+        var ext;
+        if(payload.img ){
+           fileName = payload.img.name;
+           ext = fileName.slice(fileName.lastIndexOf("."));
+        } else{
+          fileName=null
+          ext=null;
+        }
+        
+      
+       const upload = storage.ref("photos/" + payload.id + ext);
+        if(fileName){
+          upload
+          .put(payload.img)
+          .then(() => {
+            
+              upload.getDownloadURL().then(snapshot => {
+                let imgurl = snapshot;
+                realDb
+                .ref("dataCountWhereBuyRu")
+                .child(payload.id)
+                .update({ imageUrl: imgurl });
+              });
+            
+           
+          })
+        }
+       
+         
+      })
   
     },
 
@@ -1428,6 +1954,84 @@ export default new Vuex.Store({
   
     },
 
+    async updateDataBaseCareNatureEn(context,payload){
+
+      await realDb.ref('dataCountCareNatureEn').child(payload.id).update(payload)
+      .then(() => {
+      
+        var fileName;
+        var ext;
+        if(payload.img ){
+           fileName = payload.img.name;
+           ext = fileName.slice(fileName.lastIndexOf("."));
+        } else{
+          fileName=null
+          ext=null;
+        }
+        
+      
+       const upload = storage.ref("photos/" + payload.id + ext);
+        if(fileName){
+          upload
+          .put(payload.img)
+          .then(() => {
+            
+              upload.getDownloadURL().then(snapshot => {
+                let imgurl = snapshot;
+                realDb
+                .ref("dataCountCareNatureEn")
+                .child(payload.id)
+                .update({ imageUrl: imgurl });
+              });
+            
+           
+          })
+        }
+       
+         
+      })
+  
+    },
+
+    async updateDataBaseWhereBuyEn(context,payload){
+
+      await realDb.ref('dataCountWhereBuyEn').child(payload.id).update(payload)
+      .then(() => {
+      
+        var fileName;
+        var ext;
+        if(payload.img ){
+           fileName = payload.img.name;
+           ext = fileName.slice(fileName.lastIndexOf("."));
+        } else{
+          fileName=null
+          ext=null;
+        }
+        
+      
+       const upload = storage.ref("photos/" + payload.id + ext);
+        if(fileName){
+          upload
+          .put(payload.img)
+          .then(() => {
+            
+              upload.getDownloadURL().then(snapshot => {
+                let imgurl = snapshot;
+                realDb
+                .ref("dataCountWhereBuyEn")
+                .child(payload.id)
+                .update({ imageUrl: imgurl });
+              });
+            
+           
+          })
+        }
+       
+         
+      })
+  
+    },
+
     // UPDATE ENG END
 
     async setPhotoUrlandName(context,payload){
@@ -1518,6 +2122,37 @@ export default new Vuex.Store({
 
  }
 
+ const datasCareNature= await axios.get('https://baku-caviar-ba330-default-rtdb.firebaseio.com/dataCountCareNature.json');
+ const inputCountsCareNature=[]
+
+  for (const key in datasCareNature.data) {
+    let inputCount = {
+      id: datasCareNature.data[key].id,
+      title: datasCareNature.data[key].title,
+      photo:datasCareNature.data[key].imageUrl,
+      imgName:datasCareNature.data[key].imgName
+      
+    }
+
+    inputCountsCareNature.push(inputCount);
+
+}
+const datasWhereBuy= await axios.get('https://baku-caviar-ba330-default-rtdb.firebaseio.com/dataCountWhereBuy.json');
+const inputCountsWhereBuy=[]
+
+ for (const key in datasWhereBuy.data) {
+   let inputCount = {
+     id: datasWhereBuy.data[key].id,
+     title: datasWhereBuy.data[key].title,
+     photo:datasWhereBuy.data[key].imageUrl,
+     imgName:datasWhereBuy.data[key].imgName
+     
+   }
+
+   inputCountsWhereBuy.push(inputCount);
+
+}
+
 //  LOAD RUS
 const datasRu= await axios.get('https://baku-caviar-ba330-default-rtdb.firebaseio.com/dataCountRu.json');
 const inputCountsRu=[]
@@ -1599,6 +2234,37 @@ let inputCount = {
 }
 
 inputCountsContactRu.push(inputCount);
+
+}
+
+const datasCareNatureRu= await axios.get('https://baku-caviar-ba330-default-rtdb.firebaseio.com/dataCountCareNatureRu.json');
+const inputCountsCareNatureRu=[]
+
+ for (const key in datasCareNatureRu.data) {
+   let inputCount = {
+     id: datasCareNatureRu.data[key].id,
+     title: datasCareNatureRu.data[key].title,
+     photo:datasCareNatureRu.data[key].imageUrl,
+     imgName:datasCareNatureRu.data[key].imgName
+     
+   }
+
+   inputCountsCareNatureRu.push(inputCount);
+
+}
+const datasWhereBuyRu= await axios.get('https://baku-caviar-ba330-default-rtdb.firebaseio.com/dataCountWhereBuyRu.json');
+const inputCountsWhereBuyRu=[]
+
+for (const key in datasWhereBuyRu.data) {
+  let inputCount = {
+    id: datasWhereBuyRu.data[key].id,
+    title: datasWhereBuyRu.data[key].title,
+    photo:datasWhereBuyRu.data[key].imageUrl,
+    imgName:datasWhereBuyRu.data[key].imgName
+    
+  }
+
+  inputCountsWhereBuyRu.push(inputCount);
 
 }
 
@@ -1687,6 +2353,37 @@ let inputCount = {
 inputCountsContactEn.push(inputCount);
 
 }
+
+const datasCareNatureEn= await axios.get('https://baku-caviar-ba330-default-rtdb.firebaseio.com/dataCountCareNatureEn.json');
+const inputCountsCareNatureEn=[]
+
+ for (const key in datasCareNatureEn.data) {
+   let inputCount = {
+     id: datasCareNatureEn.data[key].id,
+     title: datasCareNatureEn.data[key].title,
+     photo:datasCareNatureEn.data[key].imageUrl,
+     imgName:datasCareNatureEn.data[key].imgName
+     
+   }
+
+   inputCountsCareNatureEn.push(inputCount);
+
+}
+const datasWhereBuyEn= await axios.get('https://baku-caviar-ba330-default-rtdb.firebaseio.com/dataCountWhereBuyEn.json');
+const inputCountsWhereBuyEn=[]
+
+for (const key in datasWhereBuyEn.data) {
+  let inputCount = {
+    id: datasWhereBuyEn.data[key].id,
+    title: datasWhereBuyEn.data[key].title,
+    photo:datasWhereBuyEn.data[key].imageUrl,
+    imgName:datasWhereBuyEn.data[key].imgName
+    
+  }
+
+  inputCountsWhereBuyEn.push(inputCount);
+
+}
 // LOAD ENG END
 
      context.commit('loadInfos',
@@ -1696,13 +2393,16 @@ inputCountsContactEn.push(inputCount);
       heritageInputs:inputCountsHeritage,
       ourCaviarInputs:inputCountsOurCaviar,
       contactInputs:inputCountsContact,
-
+      careNatureInputs:inputCountsCareNature,
+      whereBuyInputs:inputCountsWhereBuy,
       // RUS
       homeInputsRu:inputCountsRu,
       aboutInputsRu:inputCountsAboutRu,
       heritageInputsRu:inputCountsHeritageRu,
       ourCaviarInputsRu:inputCountsOurCaviarRu,
       contactInputsRu:inputCountsContactRu,
+      careNatureInputsRu:inputCountsCareNatureRu,
+      whereBuyInputsRu:inputCountsWhereBuyRu,
 
       // ENG
       homeInputsEn:inputCountsEn,
@@ -1710,6 +2410,8 @@ inputCountsContactEn.push(inputCount);
       heritageInputsEn:inputCountsHeritageEn,
       ourCaviarInputsEn:inputCountsOurCaviarEn,
       contactInputsEn:inputCountsContactEn,
+      careNatureInputsEn:inputCountsCareNatureEn,
+      whereBuyInputsEn:inputCountsWhereBuyEn,
 
       
     })

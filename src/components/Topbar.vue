@@ -107,6 +107,8 @@ export default {
           { item: "Biz kimik", link: "about", icon: "fas fa-users" },
           { item: "İrsimiz", link: "heritage", icon: "fas fa-bookmark" },
           { item: "Bizim kürümüz", link: "our-caviar", icon: "fas fa-fish" },
+          {item:'Təbiətə qayğı',link:'care-nature',icon:'fas fa-leaf'},
+      {item:'Haradan almaq olar',link:'where-buy',icon:'fas fa-location-arrow'},
           { item: "Əlaqə", link: "contact", icon: "fas fa-phone" },
         ],
       });
@@ -118,6 +120,8 @@ export default {
           { item: "О нас", link: "about", icon: "fas fa-users" },
           { item: "Наследие", link: "heritage", icon: "fas fa-bookmark" },
           { item: "Наша икра", link: "our-caviar", icon: "fas fa-fish" },
+          {item:'Забота о природе',link:'care-nature',icon:'fas fa-leaf'},
+      {item:'Где купить',link:'where-buy',icon:'fas fa-location-arrow'},
           { item: "Контакт", link: "contact", icon: "fas fa-phone" },
         ],
       });
@@ -129,6 +133,8 @@ export default {
           { item: "Who we are", link: "about", icon: "fas fa-users" },
           { item: "Our heritage", link: "heritage", icon: "fas fa-bookmark" },
           { item: "Our caviar", link: "our-caviar", icon: "fas fa-fish" },
+          {item:'Care to nature',link:'care-nature',icon:'fas fa-leaf'},
+      {item:'Where to buy',link:'where-buy',icon:'fas fa-location-arrow'},
           { item: "Contact", link: "contact", icon: "fas fa-phone" },
         ],
       });

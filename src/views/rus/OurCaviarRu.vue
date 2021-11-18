@@ -3,7 +3,7 @@
     <dashboard
       :currentInputsCount="currentInputsCount"
       :showWithProps="false"
-      :showInput="false"
+      :showInput="true"
       @addInputOurCaviarRu="incInput"
       @saveOurCaviarRu="save"
       @updateOurCaviarRu="update"

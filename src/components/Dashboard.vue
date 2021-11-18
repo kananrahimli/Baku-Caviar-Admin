@@ -117,6 +117,12 @@ export default {
     "addInputOurCaviar",
     "saveOurCaviar",
     "updateOurCaviar",
+    "addInputCareNature",
+    "saveCareNature",
+    "updateCareNature",
+    "addInputWhereBuy",
+    "saveWhereBuy",
+    "updateWhereBuy",
     "addInputContact",
     "saveContact",
     "updateContact",
@@ -134,6 +140,12 @@ export default {
     "addInputOurCaviarEn",
     "saveOurCaviarEn",
     "updateOurCaviarEn",
+    "addInputCareNatureEn",
+    "saveCareNatureEn",
+    "updateCareNatureEn",
+    "addInputWhereBuyEn",
+    "saveWhereBuyEn",
+    "updateWhereBuyEn",
     "addInputContactEn",
     "saveContactEn",
     "updateContactEn",
@@ -151,6 +163,12 @@ export default {
     "addInputOurCaviarRu",
     "saveOurCaviarRu",
     "updateOurCaviarRu",
+     "addInputCareNatureRu",
+    "saveCareNatureRu",
+    "updateCareNatureRu",
+    "addInputWhereBuyRu",
+    "saveWhereBuyRu",
+    "updateWhereBuyRu",
     "addInputContactRu",
     "saveContactRu",
     "updateContactRu",
@@ -203,6 +221,14 @@ export default {
         id: this.$store.state.contactDataCount.length,
         title: "",
       });
+       this.$emit("addInputCareNature", {
+        id: this.$store.state.careNatureDataCount.length,
+        title: "",
+      });
+      this.$emit("addInputWhereBuy", {
+        id: this.$store.state.whereBuyDataCount.length,
+        title: "",
+      });
 
       //ENG
       
@@ -224,6 +250,14 @@ export default {
       });
       this.$emit("addInputContactEn", {
         id: this.$store.state.contactDataCountEn.length,
+        title: "",
+      });
+        this.$emit("addInputCareNatureEn", {
+        id: this.$store.state.careNatureDataCountEn.length,
+        title: "",
+      });
+      this.$emit("addInputWhereBuyEn", {
+        id: this.$store.state.whereBuyDataCountEn.length,
         title: "",
       });
 
@@ -248,13 +282,26 @@ export default {
         id: this.$store.state.contactDataCountRu.length,
         title: "",
       });
+        this.$emit("addInputCareNatureRu", {
+        id: this.$store.state.careNatureDataCountRu.length,
+        title: "",
+      });
+      this.$emit("addInputWhereBuyRu", {
+        id: this.$store.state.whereBuyDataCountRu.length,
+        title: "",
+      });
     },
 
-    async deleteInput(e) {
-      await this.$store.dispatch("deleteInput", {
+     deleteInput(e) {
+     
+    this.$store.dispatch("deleteInput", {
         id: e.target.parentElement.parentElement.id,
+        
       });
-      this.showAddButton = await true;
+       this.$store.commit('delete',e.target.parentElement.parentElement.id)
+
+      // console.log(e.target.parentElement.parentElement.id );
+      this.showAddButton = true;
     },
 
     selectFile(e) {
@@ -316,6 +363,18 @@ export default {
         title: savedInput.title,
         id: savedInput.id,
       });
+      this.$emit("saveCareNature", {
+        title: savedInput.title,
+        id: savedInput.id,
+        img: this.image,
+        imgName: this.photoName,
+      });
+      this.$emit("saveWhereBuy", {
+        title: savedInput.title,
+        id: savedInput.id,
+        img: this.image,
+        imgName: this.photoName,
+      });
 
       // ENG
 
@@ -347,6 +406,18 @@ export default {
         title: savedInput.title,
         id: savedInput.id,
       });
+      this.$emit("saveCareNatureEn", {
+        title: savedInput.title,
+        id: savedInput.id,
+        img: this.image,
+        imgName: this.photoName,
+      });
+      this.$emit("saveWhereBuyEn", {
+        title: savedInput.title,
+        id: savedInput.id,
+        img: this.image,
+        imgName: this.photoName,
+      });
 
       // RUS
       this.$emit("saveHomeRu", {
@@ -376,6 +447,18 @@ export default {
       this.$emit("saveContactRu", {
         title: savedInput.title,
         id: savedInput.id,
+      });
+       this.$emit("saveCareNatureRu", {
+        title: savedInput.title,
+        id: savedInput.id,
+        img: this.image,
+        imgName: this.photoName,
+      });
+      this.$emit("saveWhereBuyRu", {
+        title: savedInput.title,
+        id: savedInput.id,
+        img: this.image,
+        imgName: this.photoName,
       });
 
       this.showAddButton = true;
@@ -421,6 +504,19 @@ export default {
         title: this.savedInput.title,
         id: this.savedInput.id,
       });
+      await this.$emit("updateCareNature", {
+        title: this.savedInput.title,
+        id: this.savedInput.id,
+        img: this.image,
+        imgName: imgName,
+      });
+      await this.$emit("updateWhereBuy", {
+        title: this.savedInput.title,
+        id: this.savedInput.id,
+        img: this.image,
+        imgName: imgName,
+      });
+      
 
       // ENG
 
@@ -452,6 +548,19 @@ export default {
         title: this.savedInput.title,
         id: this.savedInput.id,
       });
+        await this.$emit("updateCareNatureEn", {
+        title: this.savedInput.title,
+        id: this.savedInput.id,
+        img: this.image,
+        imgName: imgName,
+      });
+      await this.$emit("updateWhereBuyEn", {
+        title: this.savedInput.title,
+        id: this.savedInput.id,
+        img: this.image,
+        imgName: imgName,
+      });
+      
 
       // RUS
       await this.$emit("updateHomeRu", {
@@ -482,6 +591,19 @@ export default {
         title: this.savedInput.title,
         id: this.savedInput.id,
       });
+        await this.$emit("updateCareNatureRu", {
+        title: this.savedInput.title,
+        id: this.savedInput.id,
+        img: this.image,
+        imgName: imgName,
+      });
+      await this.$emit("updateWhereBuyRu", {
+        title: this.savedInput.title,
+        id: this.savedInput.id,
+        img: this.image,
+        imgName: imgName,
+      });
+      
 
       this.showAddButton = true;
     },

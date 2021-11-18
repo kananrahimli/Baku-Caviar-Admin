@@ -4,9 +4,9 @@
       :currentInputsCount="currentInputsCount"
       :showWithProps="false"
       :showInput="true"
-      @addInputOurCaviarEn="incInput"
-      @saveOurCaviarEn="save"
-      @updateOurCaviarEn="update"
+      @addInputCareNature="incInput"
+      @saveCareNature="save"
+      @updateCareNature="update"
     >
     </dashboard>
   </div>
@@ -16,25 +16,25 @@
 // @ is an alias to /src
 
 export default {
-  name: "OurCaviarEn",
+  name: "CareNature",
 
   data() {
     return {};
   },
   computed: {
     currentInputsCount() {
-      return this.$store.state.ourCaviarDataCountEn;
+      return this.$store.state.careNatureDataCount;
     },
   },
   methods: {
     incInput(data) {
-      this.$store.dispatch("increaseInputOurCaviarEn", data);
+      this.$store.dispatch("increaseInputCareNature", data);
     },
     async save(data) {
-      await this.$store.dispatch("saveToDataBaseOurCaviarEn", data);
+      await this.$store.dispatch("saveToDataBaseCareNature", data);
     },
     async update(data) {
-      await this.$store.dispatch("updateDataBaseOurCaviarEn", data);
+      await this.$store.dispatch("updateDataBaseCareNature", data);
     },
   },
 };
