@@ -155,33 +155,38 @@ export default new Vuex.Store({
     },
   
     delete(state,payload){
-      console.log(payload);
+      state.dataCountEn=state.dataCountEn.filter((item)=>{return item.id!=payload})
+      state.aboutDataCountEn=state.aboutDataCountEn.filter((item)=>{return item.id!=payload})
+      state.heritageDataCountEn=state.heritageDataCountEn.filter((item)=>{return item.id!=payload})
+      state.whereBuyDataCountEn=state.whereBuyDataCountEn.filter((item)=>{return item.id!=payload})
+      state.ourCaviarDataCountEn=state.ourCaviarDataCountEn.filter((item)=>{return item.id!=payload})
+
+      state.contactDataCountEn=state.contactDataCountEn.filter((item)=>{return item.id!=payload})
+      state.careNatureDataCountEn=state.careNatureDataCountEn.filter((item)=>{return item.id!=payload})
+      
+
      state.dataCount=state.dataCount.filter((item)=>{return item.id!=payload})
      state.aboutDataCount=state.aboutDataCount.filter((item)=>{return item.id!=payload})
      state.heritageDataCount=state.heritageDataCount.filter((item)=>{return item.id!=payload})
+     state.whereBuyDataCount=state.whereBuyDataCount.filter((item)=>{return item.id!=payload})
      state.ourCaviarDataCount=state.ourCaviarDataCount.filter((item)=>{return item.id!=payload})
      state.contactDataCount=state.contactDataCount.filter((item)=>{return item.id!=payload})
      state.careNatureDataCount=state.careNatureDataCount.filter((item)=>{return item.id!=payload})
-     state.whereBuyDataCount=state.whereBuyDataCount.filter((item)=>{return item.id!=payload})
-      // RUS
+     
+    
 
       state.dataCountRu=state.dataCountRu.filter((item)=>{return item.id!=payload})
       state.aboutDataCountRu=state.aboutDataCountRu.filter((item)=>{return item.id!=payload})
       state.heritageDataCountRu=state.heritageDataCountRu.filter((item)=>{return item.id!=payload})
+      state.whereBuyDataCountRu=state.whereBuyDataCountRu.filter((item)=>{return item.id!=payload})
       state.ourCaviarDataCountRu=state.ourCaviarDataCountRu.filter((item)=>{return item.id!=payload})
       state.contactDataCountRu=state.contactDataCountRu.filter((item)=>{return item.id!=payload})
       state.careNatureDataCountRu=state.careNatureDataCountRu.filter((item)=>{return item.id!=payload})
-     state.whereBuyDataCountRu=state.whereBuyDataCountRU.filter((item)=>{return item.id!=payload})
+    
 
     //  ENG
 
-    state.dataCountEn=state.dataCountEn.filter((item)=>{return item.id!=payload})
-     state.aboutDataCountEn=state.aboutDataCountEn.filter((item)=>{return item.id!=payload})
-     state.heritageDataCountEn=state.heritageDataCountEn.filter((item)=>{return item.id!=payload})
-     state.ourCaviarDataCountEn=state.ourCaviarDataCountEn.filter((item)=>{return item.id!=payload})
-     state.contactDataCountEn=state.contactDataCountEn.filter((item)=>{return item.id!=payload})
-     state.careNatureDataCountEn=state.careNatureDataCountEn.filter((item)=>{return item.id!=payload})
-     state.whereBuyDataCountEn=state.whereBuyDataCountEn.filter((item)=>{return item.id!=payload})
+   
     },
 
     setPhotoUrlandName(state,payload){
@@ -313,7 +318,7 @@ export default new Vuex.Store({
 
     deleteInput(context,payload){
      
-      // context.commit('delete',payload.id)
+      
       realDb.ref('dataCount').child(payload.id).remove()
       realDb.ref('dataCountAbout').child(payload.id).remove()
       realDb.ref('dataCountHeritage').child(payload.id).remove()
@@ -340,6 +345,7 @@ export default new Vuex.Store({
       realDb.ref('dataCountCareNatureEn').child(payload.id).remove()
       realDb.ref('dataCountWhereBuyEn').child(payload.id).remove()
 
+      // context.commit('delete',payload.id)
      
     },
 
